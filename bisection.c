@@ -5,7 +5,7 @@ int sign(float x,float y);
 
 int main()
 {
-	int n,i=0,j,m;
+	int n,i=0,j;
 	printf("Enter the order of polynomial:");
 	scanf("%d",&n);
 	if (n<0)
@@ -22,8 +22,8 @@ int main()
 	
 	//Taking values of x0, x1, e
 	float x0,x1,e,x2;
-	printf("Enter the value of x0 ,x1 ,e ,m: ");
-	scanf("%f %f %f %d",&x0,&x1,&e,&m);
+	printf("Enter the value of x0 ,x1 ,e: ");
+	scanf("%f %f %f",&x0,&x1,&e);
 	
 	//Calculating y0,y1 for condition inside loop
 	float y0,y1,y2;
@@ -55,28 +55,23 @@ int main()
 	}
 
 	//iterating when magnitude of (x1-x0)/x0 or relative error of x1 is greater than e
-		for(i=0;i<m;i++){
-        x2=(y1*x0 - y0*x1)/(y1-y0);
+    while(fabs((x1-x0)/x1)>e){
+
+        x2=(x1+x2)/2;
         y2=arr[n];
 		for(j=n-1;j>=0;j--)
 		{
 			y2=arr[j]+x2*y2;
 		}
-		if (fabs(y2)<=e){
-			printf("Convergent solution x=%f , y=%f",x2,y2);
-			return 0;
-		}
-		
-		if (sign(y0,y2)){//replacing values of x0 or x1 to x2 based on sign of y0,y1 and y2
+		i=i+1;
+		if (sign(y0,y2))//replacing values of x0 or x1 to x2 based on sign of y0 and y1
 			x0=x2;
-			y0=y2;}
-		else{
+		else
 			x1=x2;
-			y1=y2;
-			}
 	}
 	
-	printf("Does not converge in %d iterations \n",m);
+	printf("No. of iterations : %d\n",i);
+	printf("Value of root : %f\n",x2);
 	
 	return 0;
 }
