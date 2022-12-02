@@ -57,17 +57,22 @@ int main()
 	//iterating when magnitude of (x1-x0)/x0 or relative error of x1 is greater than e
     while(fabs((x1-x0)/x1)>e){
 
-        x2=(x1+x2)/2;
+        x2=(x1+x0)/2;
         y2=arr[n];
 		for(j=n-1;j>=0;j--)
 		{
 			y2=arr[j]+x2*y2;
 		}
 		i=i+1;
-		if (sign(y0,y2))//replacing values of x0 or x1 to x2 based on sign of y0 and y1
+		//replacing values of x0 or x1 to x2 based on sign of y0 and y1
+		if (sign(y0,y2)){
 			x0=x2;
-		else
+			y0=y2;
+		}
+		else{
 			x1=x2;
+			y1=y2;
+		}
 	}
 	
 	printf("No. of iterations : %d\n",i);
