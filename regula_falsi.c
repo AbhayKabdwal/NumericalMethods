@@ -56,25 +56,25 @@ int main()
 
 	//iterating when magnitude of (x1-x0)/x0 or relative error of x1 is greater than e
 		for(i=0;i<m;i++){
-        x2=(y1*x0 - y0*x1)/(y1-y0);
-        y2=arr[n];
-		for(j=n-1;j>=0;j--)
-		{
-			y2=arr[j]+x2*y2;
-		}
-		if (fabs(y2)<=e){
-			printf("Convergent solution x=%f , y=%f",x2,y2);
-			return 0;
-		}
-		
-		if (sign(y0,y2)){//replacing values of x0 or x1 to x2 based on sign of y0,y1 and y2
-			x0=x2;
-			y0=y2;}
-		else{
-			x1=x2;
-			y1=y2;
+			x2=(y1*x0 - y0*x1)/(y1-y0);
+			y2=arr[n];
+			for(j=n-1;j>=0;j--){
+				y2=arr[j]+x2*y2;
 			}
-	}
+			if (fabs(y2)<=e){
+				printf("Convergent solution x=%f , y=%f/n",x2,y2);
+				return 0;
+			}
+			
+			//replacing values of x0 or x1 to x2 based on sign of y0,y1 and y2
+			if (sign(y0,y2)){
+				x0=x2;
+				y0=y2;}
+			else{
+				x1=x2;
+				y1=y2;
+				}
+		}
 	
 	printf("Does not converge in %d iterations \n",m);
 	
