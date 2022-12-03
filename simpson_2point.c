@@ -11,7 +11,7 @@ int main(){
     h=(x2-x1)/2;
     
     
-    printf("enter the no. of terms: ");
+    printf("Enter order of polynomial:  ");
   	scanf("%d",&n);
   	float f[n+1];
   	for(int i=n;i>=0;i--){
