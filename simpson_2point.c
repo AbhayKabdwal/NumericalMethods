@@ -42,8 +42,8 @@ int main(){
 
     }
 
-    printf("Integration is \n: %f",In);
-    printf("Values of h and i are \n: %f %d",h,i);
+    printf("Integration using simpson two point form is %f \n",In);
+    printf("Values of h and i are : %f %d\n",h,i);
     return 0;
 }
 

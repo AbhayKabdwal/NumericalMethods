@@ -8,16 +8,14 @@ int main(){
     scanf("%lf",&r);
     printf("Enter the order of polynomial : ");
     scanf("%d",&n);
-    if (n<0)
-    {
+    if (n<0){
         printf("You can't enter negative value of n !!");
         return 0;
     }
     
     float a[n+1];
     float b[n];
-	for(i=n;i>=0;i--)
-	{
+	for(i=n;i>=0;i--){
 		printf("Enter the cofficient of a[%d]: ",i);
 		scanf("%f",&a[i]);
 	}
@@ -37,8 +35,7 @@ int main(){
     // }
     // printf("%.0lf\n",b[0]);
 
-    for (int i = n-1; i >=0; i--)
-    {
+    for (int i = n-1; i >=0; i--){
         printf("%f  ",b[i]);
     }
     
