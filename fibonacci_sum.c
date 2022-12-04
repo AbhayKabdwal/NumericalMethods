@@ -42,7 +42,6 @@ int main(){
         printf("%.0lf, ",a);
         sum += a;
     }
-
     printf("\nThe sum of fibonacci series is = %.0lf\n",sum);
     return 0;
 }
