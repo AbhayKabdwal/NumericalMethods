@@ -1,40 +1,35 @@
 #include<stdio.h>
 
-float eval(float *arr,int mx,int my,float x,float y);
-
-int main(){
-    int mx,my;
-    float x1,x2,x3,xf,y1,y2,h,s1,s2,s3,y3p,y3c;
-    printf("enter the order of x in the polynomial: ");
-	scanf("%d",&mx);
-    printf("enter the order of y in the polynomial: ");
-	scanf("%d",&my);
-	if ((mx<0)||(my<0)){
-        printf("You can't enter negative value of order !!");
-        return 0;
-    }
-	float arr[mx+1][my+1];
-	for(int i=mx;i>=0;i--){
-        for (int j = my; j >= 0; j--)
-        {
-            printf("enter the cofficient of x^%d * y^%d: ",i,j);
-		    scanf("%f",&arr[i][j]);
-        }
-	}
-    
-    printf("Enter the valeus of x1, y1, xf, h: ");
-    scanf("%f %f %f %f",&x1,&y1,&xf,&h);
-
-    printf("%f %f",x1,y1);
-    // s1 = eval(arr,m,)
+float function(float x,float y){
+    return -1*(x*y);
 }
 
-// float eval(float *arr,int mx,int my,float x,float y){
-//     float y;
-//     y=arr[n];
-//     for(int i=n;i>0;i--)
-// 	{
-// 		y=arr[i-1]+x*y;
-// 	}
-//     return y;
-// }
+int main(){
+    float x1, y1, h, xFinal;
+    printf("Enter the value of x1 and y1: ");
+    scanf("%f %f",&x1, &y1);
+    printf("Enter the value of h [Step Value]");
+    scanf("%f", &h);
+    printf("Enter the final value of x: ");
+    scanf("%f",&xFinal);
+
+    printf("\nx==%f && y==%f",x1,y1);
+    float s1 = function(x1,y1);
+    float x2 = x1+h;
+    float y2 = y1 + h*s1;
+    float s2 = function(x2,y2);
+    y2 = y1 + (h/2)*(s1+s2);
+
+    float y3P,y3C,x3,s3;
+    while(x2<=xFinal){
+        printf("\nx==%f && y==%f", x2,y2);
+        y3P = y1 + 2*h*s2;
+        x3 = x2+h;
+        s3 = function(x3, y3P);
+        y3C = y1 +(h*(s2+s3))/2;
+        y1 = y2;
+        y2 = y3C;
+        x2 = x3;
+    }
+    return 0;
+}
