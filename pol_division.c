@@ -24,16 +24,9 @@ int main(){
     for (i=1; i<=n-1;i++){
         b[n-i-1] = a[n-i] + r*b[n-i];
     }
-    printf("The given polynomial is: ");
-    for(i=n;i>=1;i--){
-        printf("(%.0lf*x^%d) + ",a[i],i);
+
+    for(i=0;i<=n-1;i++){
+        printf("\nCoefficient of x^%i : %.2f",i,b[i]);
     }
-    printf("%.0lf\n",a[0]);
-    printf("The quotient after division is: ");
-    for(i=n-1;i>=1;i--){
-        printf("(%.0lf*x^%d) + ",b[i],i);
-    }
- 
-    
     return 0;
 }

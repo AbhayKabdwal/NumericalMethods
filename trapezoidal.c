@@ -16,7 +16,7 @@ int main()
 	float f[n+1];
 
 	for(i=1;i<n+1;i++){
-	 printf("Enter the value of f[%d]",i);
+	 printf("Enter the value of f[%d] : ",i);
 	 scanf("%f",&f[i]);
 	 sum =(f[1]+f[n])/2;
     } 

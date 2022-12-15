@@ -23,7 +23,7 @@ int main(){
         scanf("%f",&arr1[j]);
     }
 
-    printf("Enter x0, e, i, d :");
+    printf("Enter x0, e, no. of iteration, delta :");
     scanf("%f %f %d %f",&x0,&e,&n,&d);
     
     for(int i = 1; i<n; i++)

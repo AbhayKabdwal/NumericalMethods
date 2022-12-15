@@ -3,7 +3,7 @@ int main()
 {
 	int n,i,j;
     float y,x;
-	printf("enter the order of polynomial:");
+	printf("Enter the order of polynomial:");
 	scanf("%d",&n);
 	if (n<0)
     {
@@ -13,7 +13,7 @@ int main()
 	float arr[n+1];
 	for(i=n;i>=0;i--)
 	{
-		printf("enter the cofficient of a[%d]: ",i);
+		printf("Enter the cofficient of a[%d]: ",i);
 		scanf("%f",&arr[i]);
 	}
     printf("Enter value of x: ");

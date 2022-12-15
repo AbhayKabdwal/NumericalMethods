@@ -3,18 +3,18 @@ int main()
 {
   int i,n,j,k;
   float h,sum,integral;
-  printf("enter the value of h");
+  printf("Enter the value of h : ");
   scanf("%f",&h);
   if(h>1){
   	printf("h is not suitable");
   	return 0;
   }
   
-  printf("enter the no. of terms:");
+  printf("Enter the no. of terms:");
 	scanf("%d",&n);
   float f[n+1];
 	for(i=1;i<n+1;i++){
-  	printf("enter the value of a[%d]",i);
+  	printf("Enter the value of a[%d] : ",i);
   	scanf("%f",&f[i]);
   }
   sum = (f[1]+f[n]);

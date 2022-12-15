@@ -8,14 +8,19 @@ int main(){
     scanf("%f %f",&x1,&y1);
     printf("Enter the final value of x: ");
     scanf("%f", &xFinal);
-    printf("Enter the value of h: ");
+    printf("Enter the value of h [Step increment]: ");
     scanf("%f", &h);
-
     while(x1<=xFinal){
-      printf("At x=%6.5f  y=%6.5f\n",x1,y1);
-      y1 = y1 + (h*function(x1+(h/2), y1 + (h/2)*function(x1,y1)));
-      x1+=h; 
+        printf("\nThe values are X=%f and y=%f", x1, y1);
+        float s1 = function(x1, y1);
+        float x2 = x1+h;
+        float y2 = y1 + (h*s1);
+        float s2 = function(x2, y2);
+        y2 = y1 + h*((s1+s2)/2);
+        x1 = x2;
+        y1 = y2;
     }
+
     return 0;
 }
 float function(float x,float y){

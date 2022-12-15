@@ -2,10 +2,12 @@
 #include<math.h>
 
 int sign(float x,float y);
+float eval(float *arr,int n,float x);
 
 int main()
 {
 	int n,i=0,j,m;
+	float x,lower_bound,upper_bound;
 	printf("Enter the order of polynomial:");
 	scanf("%d",&n);
 	if (n<0)
@@ -19,7 +21,14 @@ int main()
 		printf("Enter the cofficient of a[%d]: ",i);
 		scanf("%f",&arr[i]);
 	}
+	printf("Enter lower bound : ");
+	scanf("%f",&lower_bound);
+	printf("Enter upper bound : ");
+	scanf("%f",&upper_bound);
 	
+	for(x=lower_bound;x<=upper_bound;x=x+1){
+		printf("value of y(%.2f) : %.2f\n",x,eval(arr,n,x));
+	}
 	//Taking values of x0, x1, e
 	float x0,x1,e,x2;
 	printf("Enter the value of x0 ,x1 ,e ,m: ");
@@ -62,7 +71,7 @@ int main()
 				y2=arr[j]+x2*y2;
 			}
 			if (fabs(y2)<=e){
-				printf("Convergent solution x=%f , y=%f/n",x2,y2);
+				printf("Convergent solution x=%f , y=%f\n",x2,y2);
 				return 0;
 			}
 			
@@ -82,10 +91,18 @@ int main()
 }
 
 //function which returns 1 if sign of two arguments is same else returns 0
-	int sign (float x,float y)
+int sign (float x,float y){
+	if (x*y>0)
+	return 1;
+	else if(x*y<0)
+	return 0;
+}
+float eval(float *arr,int n,float x){
+    float y;
+    y=arr[n];
+    for(int i=n;i>0;i--)
 	{
-	 if (x*y>0)
-	 return 1;
-	 else if(x*y<0)
-	 return 0;
-    }
+		y=arr[i-1]+x*y;
+	}
+    return y;
+}
